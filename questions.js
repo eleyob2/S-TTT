@@ -1,0 +1,94 @@
+const DB = {
+  science:{
+    easy:[
+      {q:"What is the chemical symbol for water?",opts:["H2O","CO2","NaCl","O2"],ans:0,exp:"Water is made of two hydrogen atoms and one oxygen atom."},
+      {q:"How many planets are in our solar system?",opts:["7","8","9","10"],ans:1,exp:"There are 8 planets: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune."},
+      {q:"What is the powerhouse of the cell?",opts:["Nucleus","Ribosome","Mitochondria","Golgi body"],ans:2,exp:"The mitochondria generates most of the cell's ATP energy."},
+      {q:"What gas do plants absorb during photosynthesis?",opts:["Oxygen","Nitrogen","Carbon dioxide","Hydrogen"],ans:2,exp:"Plants absorb CO₂ and release oxygen during photosynthesis."},
+      {q:"What is the speed of light (approx)?",opts:["300,000 km/s","150,000 km/s","500,000 km/s","30,000 km/s"],ans:0,exp:"Light travels at approximately 299,792 km/s in a vacuum."},
+    ],
+    medium:[
+      {q:"What is the atomic number of carbon?",opts:["6","8","12","14"],ans:0,exp:"Carbon has 6 protons, giving it atomic number 6."},
+      {q:"Which organ produces insulin?",opts:["Liver","Kidney","Pancreas","Stomach"],ans:2,exp:"The pancreas produces insulin to regulate blood sugar."},
+      {q:"What is Newton's 2nd law expressed as?",opts:["F=ma","E=mc²","PV=nRT","v=u+at"],ans:0,exp:"Force equals mass times acceleration."},
+      {q:"DNA stands for:",opts:["Deoxyribonucleic acid","Dinitrogen acid","Deoxyribonitric acid","Double nucleic acid"],ans:0,exp:"DNA = Deoxyribonucleic acid, the molecule carrying genetic info."},
+      {q:"Which element has the symbol Fe?",opts:["Fluorine","Fermium","Iron","Francium"],ans:2,exp:"Fe comes from the Latin word 'Ferrum', meaning iron."},
+    ],
+    hard:[
+      {q:"What is the Heisenberg Uncertainty Principle?",opts:["Energy is conserved","Position & momentum can't both be precisely known","Light speed is constant","Matter equals energy"],ans:1,exp:"It states that the more precisely position is known, the less precisely momentum can be known."},
+      {q:"Which process converts glucose to pyruvate?",opts:["Krebs cycle","Oxidative phosphorylation","Glycolysis","Beta-oxidation"],ans:2,exp:"Glycolysis breaks down glucose into two pyruvate molecules in the cytoplasm."},
+      {q:"What is the half-life of Carbon-14?",opts:["1,000 years","5,730 years","10,000 years","50,000 years"],ans:1,exp:"C-14 has a half-life of approximately 5,730 years, used in radiocarbon dating."},
+      {q:"Which quantum number describes orbital shape?",opts:["Principal (n)","Angular momentum (l)","Magnetic (ml)","Spin (ms)"],ans:1,exp:"The angular momentum quantum number (l) defines the shape of atomic orbitals."},
+      {q:"What is CRISPR used for?",opts:["Protein synthesis","DNA editing","Cell division","Virus replication"],ans:1,exp:"CRISPR-Cas9 is a gene editing tool that can precisely modify DNA sequences."},
+    ]
+  },
+  history:{
+    easy:[
+      {q:"In what year did World War II end?",opts:["1943","1944","1945","1946"],ans:2,exp:"WWII ended in 1945 with Germany's surrender in May and Japan's in September."},
+      {q:"Who was the first US President?",opts:["John Adams","Thomas Jefferson","George Washington","Benjamin Franklin"],ans:2,exp:"George Washington served as the 1st President from 1789 to 1797."},
+      {q:"The French Revolution began in which year?",opts:["1776","1789","1804","1815"],ans:1,exp:"The French Revolution began in 1789 with the storming of the Bastille."},
+      {q:"Which empire built the Colosseum?",opts:["Greek","Ottoman","Roman","Byzantine"],ans:2,exp:"The Roman Empire built the Colosseum, completed in 80 AD."},
+      {q:"Who painted the Mona Lisa?",opts:["Michelangelo","Raphael","Leonardo da Vinci","Caravaggio"],ans:2,exp:"Leonardo da Vinci painted the Mona Lisa between 1503 and 1519."},
+    ],
+    medium:[
+      {q:"Which treaty ended World War I?",opts:["Treaty of Paris","Treaty of Versailles","Treaty of Ghent","Treaty of Utrecht"],ans:1,exp:"The Treaty of Versailles in 1919 officially ended WWI."},
+      {q:"Who led the Cuban Revolution?",opts:["Che Guevara","Raúl Castro","Fidel Castro","Fulgencio Batista"],ans:2,exp:"Fidel Castro led the Cuban Revolution, overthrowing Batista in 1959."},
+      {q:"The Berlin Wall fell in which year?",opts:["1987","1988","1989","1991"],ans:2,exp:"The Berlin Wall fell on November 9, 1989."},
+      {q:"Which civilization built Machu Picchu?",opts:["Aztec","Maya","Inca","Olmec"],ans:2,exp:"The Inca Empire built Machu Picchu in the 15th century."},
+      {q:"What year did the Titanic sink?",opts:["1910","1911","1912","1913"],ans:2,exp:"The Titanic sank on April 15, 1912 after hitting an iceberg."},
+    ],
+    hard:[
+      {q:"Who was the first female Prime Minister of the UK?",opts:["Queen Victoria","Margaret Thatcher","Theresa May","Mary I"],ans:1,exp:"Margaret Thatcher served as UK PM from 1979 to 1990."},
+      {q:"The Thirty Years' War was primarily fought in:",opts:["France","Italy","Holy Roman Empire","England"],ans:2,exp:"The war (1618–1648) was fought mainly in the Holy Roman Empire (modern Germany)."},
+      {q:"Which pharaoh built the Great Pyramid of Giza?",opts:["Ramesses II","Tutankhamun","Khufu","Akhenaten"],ans:2,exp:"Pharaoh Khufu (Cheops) built the Great Pyramid around 2560 BC."},
+      {q:"The Meiji Restoration occurred in which country?",opts:["China","Korea","Japan","Vietnam"],ans:2,exp:"Japan's Meiji Restoration in 1868 modernized the country under Emperor Meiji."},
+      {q:"Who wrote 'The Communist Manifesto'?",opts:["Lenin & Stalin","Marx & Engels","Trotsky & Mao","Hegel & Feuerbach"],ans:1,exp:"Karl Marx and Friedrich Engels published The Communist Manifesto in 1848."},
+    ]
+  },
+  math:{
+    easy:[
+      {q:"What is the value of π (pi) to 2 decimal places?",opts:["3.12","3.14","3.16","3.18"],ans:1,exp:"Pi (π) is approximately 3.14159..."},
+      {q:"What is 12 × 12?",opts:["132","144","124","148"],ans:1,exp:"12 × 12 = 144, a perfect square."},
+      {q:"What is the square root of 64?",opts:["6","7","8","9"],ans:2,exp:"8 × 8 = 64, so √64 = 8."},
+      {q:"What is 15% of 200?",opts:["25","30","35","40"],ans:1,exp:"15% × 200 = 0.15 × 200 = 30."},
+      {q:"What is the area of a square with side 5?",opts:["20","10","25","15"],ans:2,exp:"Area of a square = side² = 5² = 25."},
+    ],
+    medium:[
+      {q:"What is the derivative of x²?",opts:["x","2x","x²","2"],ans:1,exp:"d/dx(x²) = 2x by the power rule."},
+      {q:"Solve: 2x + 5 = 17",opts:["x=5","x=6","x=7","x=8"],ans:1,exp:"2x = 12, so x = 6."},
+      {q:"What is the sum of angles in a triangle?",opts:["90°","120°","180°","360°"],ans:2,exp:"The interior angles of any triangle sum to 180°."},
+      {q:"What is log₁₀(1000)?",opts:["2","3","4","10"],ans:1,exp:"10³ = 1000, so log₁₀(1000) = 3."},
+      {q:"How many sides does a hexagon have?",opts:["5","6","7","8"],ans:1,exp:"A hexagon has 6 sides and 6 angles."},
+    ],
+    hard:[
+      {q:"What is the integral of sin(x)?",opts:["cos(x)+C","-cos(x)+C","sin(x)+C","-sin(x)+C"],ans:1,exp:"∫sin(x)dx = -cos(x) + C."},
+      {q:"Euler's identity is e^(iπ) + ?",opts:["0","1","-1","i"],ans:2,exp:"Euler's identity: e^(iπ) + 1 = 0, so the answer is 1."},
+      {q:"What is the determinant of [[3,1],[2,4]]?",opts:["10","12","14","6"],ans:0,exp:"det = (3×4) - (1×2) = 12 - 2 = 10."},
+      {q:"Which is a prime number?",opts:["91","97","99","93"],ans:1,exp:"97 is prime. 91=7×13, 99=9×11, 93=3×31."},
+      {q:"Solve x² - 5x + 6 = 0:",opts:["x=1,6","x=2,3","x=1,5","x=3,4"],ans:1,exp:"Factor: (x-2)(x-3)=0, so x=2 or x=3."},
+    ]
+  },
+  geography:{
+    easy:[
+      {q:"What is the capital of France?",opts:["Berlin","Madrid","Paris","Rome"],ans:2,exp:"Paris is the capital and largest city of France."},
+      {q:"What is the largest ocean on Earth?",opts:["Atlantic","Indian","Arctic","Pacific"],ans:3,exp:"The Pacific Ocean is the largest, covering about 165 million km²."},
+      {q:"Which is the longest river in the world?",opts:["Amazon","Mississippi","Nile","Yangtze"],ans:2,exp:"The Nile River in Africa is approximately 6,650 km long."},
+      {q:"What is the smallest country in the world?",opts:["Monaco","Liechtenstein","Vatican City","San Marino"],ans:2,exp:"Vatican City, at 0.44 km², is the world's smallest country."},
+      {q:"On which continent is the Sahara Desert?",opts:["Asia","Australia","Africa","South America"],ans:2,exp:"The Sahara is the world's largest hot desert, located in North Africa."},
+    ],
+    medium:[
+      {q:"What is the capital of Australia?",opts:["Sydney","Melbourne","Brisbane","Canberra"],ans:3,exp:"Canberra, not Sydney, is Australia's capital city."},
+      {q:"Which country has the most natural lakes?",opts:["USA","Russia","China","Canada"],ans:3,exp:"Canada has more lakes than any other country — about 879,800."},
+      {q:"Mount Everest is in which mountain range?",opts:["Andes","Alps","Rockies","Himalayas"],ans:3,exp:"Mount Everest is part of the Himalayan mountain range."},
+      {q:"What percentage of Earth's surface is water?",opts:["51%","61%","71%","81%"],ans:2,exp:"About 71% of Earth's surface is covered by water."},
+      {q:"Which country has the most time zones?",opts:["USA","Russia","China","France"],ans:3,exp:"France, including its overseas territories, spans 12 time zones."},
+    ],
+    hard:[
+      {q:"The Mariana Trench is in which ocean?",opts:["Atlantic","Indian","Arctic","Pacific"],ans:3,exp:"The Mariana Trench, Earth's deepest point, is in the western Pacific Ocean."},
+      {q:"Which country borders the most other countries?",opts:["Russia","China","Brazil","Germany"],ans:0,exp:"Russia borders 14 countries, more than any other nation."},
+      {q:"What is the capital of Kazakhstan?",opts:["Almaty","Nur-Sultan","Shymkent","Aktobe"],ans:1,exp:"Nur-Sultan (formerly Astana) is Kazakhstan's capital since 1997."},
+      {q:"Lake Baikal holds what % of world's fresh water?",opts:["10%","15%","20%","25%"],ans:2,exp:"Lake Baikal contains about 20% of the world's unfrozen surface fresh water."},
+      {q:"Which is the smallest continent by area?",opts:["Europe","Antarctica","Australia","South America"],ans:2,exp:"Australia is the smallest continent at approximately 7.7 million km²."},
+    ]
+  }
+};
