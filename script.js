@@ -107,19 +107,14 @@ let state = {
 function getKey(idx){ return `${state.subject}-${state.diff}-${idx}`; }
 function getQs(){ return DB[state.subject][state.diff]; }
 
-function buildTabs(){
-  const el = document.getElementById("subjectTabs");
-  el.innerHTML = SUBJECTS.map(s=>`<button class="subj-tab${s===state.subject?' active':''}" onclick="setSubject('${s}')">${LABELS[s]}</button>`).join("");
-}
-
 function setSubject(s){
   state.subject=s; state.diff=document.getElementById("diffSel").value;
-  state.qIdx=0; buildTabs(); render();
+  state.qIdx=0; render();
 }
 
 function changeSubject(){
   state.subject=document.getElementById("subjectSel").value;
-  state.qIdx=0; buildTabs(); render();
+  state.qIdx=0; render();
 }
 
 function changeDiff(){
@@ -205,5 +200,4 @@ function navigate(dir){
   render();
 }
 
-buildTabs();
 render();
