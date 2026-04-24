@@ -127,6 +127,7 @@ function render(){
   const q = qs[state.qIdx];
   const key = getKey(state.qIdx);
   const answered = state.answers[key];
+  const subwaySurfers = document.getElementById("subwaySurfers");
 
   document.getElementById("qNum").textContent = `Q${state.qIdx+1}`;
   const diffEl = document.getElementById("qDiff");
@@ -175,6 +176,13 @@ function render(){
 
   document.getElementById("prevBtn").disabled = state.qIdx===0;
   document.getElementById("nextBtn").textContent = state.qIdx===qs.length-1 ? "Finish" : "Next →";
+
+  if (state.points >= 20) {
+    subwaySurfers.style.display = "flex";
+  }
+  else {
+    subwaySurfers.style.display = "none";
+  }
 }
 
 function pick(i){
@@ -199,5 +207,7 @@ function navigate(dir){
   }
   render();
 }
+
+
 
 render();
