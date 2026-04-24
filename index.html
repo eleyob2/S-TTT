@@ -12,6 +12,10 @@
       <div class="header">
         <h1>Quiz</h1>
           <div class="selects">
+            <select id="modeSel" onchange="changeMode()">
+              <option value="single">Single Player</option>
+              <option value="multiplayer">Multiplayer</option>
+            </select>
             <select id="subjectSel" onchange="changeSubject()">
               <option value="science">Science</option>
               <option value="history">History</option>
@@ -36,6 +40,15 @@
         </div>
         <span style="color:rgba(255,227,220,.7)">Total Points</span>
         <span class="pts-badge" id="pointsBadge">0 pts</span>
+      </div>
+
+      <div class="player-indicator" id="playerIndicator">
+        <div class="player-badge player-1 active" id="player1Badge">
+          <span class="player-badge-label">Player 1</span>
+        </div>
+        <div class="player-badge player-2" id="player2Badge">
+          <span class="player-badge-label">Player 2</span>
+        </div>
       </div>
 
         <div class="question-card" id="qCard">
