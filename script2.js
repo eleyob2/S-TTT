@@ -1,3 +1,5 @@
+// Original Script.js content
+
 const DB = {
   science:{
     easy:[
@@ -101,13 +103,7 @@ let state = {
   subject:"math", diff:"easy",
   qIdx:0,
   answers:{}, // key: "subj-diff-idx" -> {selected, correct}
-  points:0, correct:0, incorrect:0,
-  currentPlayer: 1, // 1 or 2
-  gameMode: "single", // "single" or "multiplayer"
-  players: {
-    1: {name: "Player 1", wins: 0},
-    2: {name: "Player 2", wins: 0}
-  }
+  points:0, correct:0, incorrect:0
 };
 
 function getKey(idx){ return `${state.subject}-${state.diff}-${idx}`; }
@@ -115,22 +111,17 @@ function getQs(){ return DB[state.subject][state.diff]; }
 
 function setSubject(s){
   state.subject=s; state.diff=document.getElementById("diffSel").value;
-  state.qIdx=0; state.currentPlayer=1; render();
+  state.qIdx=0; render();
 }
 
 function changeSubject(){
   state.subject=document.getElementById("subjectSel").value;
-  state.qIdx=0; state.currentPlayer=1; render();
+  state.qIdx=0; render();
 }
 
 function changeDiff(){
   state.diff=document.getElementById("diffSel").value;
-  state.qIdx=0; state.currentPlayer=1; render();
-}
-
-function changeMode(){
-  state.gameMode=document.getElementById("modeSel").value;
-  state.qIdx=0; state.currentPlayer=1; render();
+  state.qIdx=0; render();
 }
 
 function render(){
@@ -138,14 +129,6 @@ function render(){
   const q = qs[state.qIdx];
   const key = getKey(state.qIdx);
   const answered = state.answers[key];
-
-  // Show/hide player indicator based on game mode
-  const playerIndicator = document.getElementById("playerIndicator");
-  playerIndicator.style.display = state.gameMode === "multiplayer" ? "flex" : "none";
-
-  // Update current player display
-  document.getElementById("player1Badge").classList.toggle("active", state.currentPlayer === 1);
-  document.getElementById("player2Badge").classList.toggle("active", state.currentPlayer === 2);
 
   document.getElementById("qNum").textContent = `Q${state.qIdx+1}`;
   const diffEl = document.getElementById("qDiff");
@@ -175,18 +158,7 @@ function render(){
     fb.className = `feedback show ${answered.correct?'ok':'bad'}`;
     fbIcon.className = `icon ${answered.correct?'ok-i':'bad-i'}`;
     fbIcon.textContent = answered.correct?"✓":"✕";
-    const nextPlayer = state.currentPlayer === 1 ? 2 : 1;
-    if(state.gameMode === "multiplayer"){
-      if(answered.correct){
-        fbText.textContent = "Correct! "+q.exp;
-        fbText.textContent += ` | Go place your piece on the board!`;
-      } else {
-        fbText.textContent = "Incorrect. "+q.exp;
-        fbText.textContent += ` | ${state.players[nextPlayer].name}, get ready!`;
-      }
-    } else {
-      fbText.textContent = answered.correct ? "Correct! "+q.exp : "Incorrect. "+q.exp;
-    }
+    fbText.textContent = answered.correct ? "Correct! "+q.exp : "Incorrect. "+q.exp;
   } else {
     fb.className="feedback";
   }
@@ -220,14 +192,6 @@ function pick(i){
 
 function navigate(dir){
   const qs = getQs();
-  const key = getKey(state.qIdx);
-  const answered = state.answers[key];
-  
-  // Switch players when moving forward to the next question (only in multiplayer mode)
-  if(dir === 1 && answered && state.gameMode === "multiplayer"){
-    state.currentPlayer = state.currentPlayer === 1 ? 2 : 1;
-  }
-  
   state.qIdx = Math.max(0, Math.min(qs.length-1, state.qIdx+dir));
   if(state.qIdx===qs.length-1 && dir===1 && Object.keys(state.answers).filter(k=>k.startsWith(`${state.subject}-${state.diff}-`)).length===qs.length){
     const s = state.subject; const d = state.diff;
