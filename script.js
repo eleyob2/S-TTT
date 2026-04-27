@@ -182,7 +182,7 @@ function pick(i){
   const qs = getQs();
   const correct = i===qs[state.qIdx].ans;
   state.answers[key] = {selected:i, correct};
-  if(correct){ state.correct++; state.points+=DIFF_PTS[state.diff]; }
+  if(correct){ state.correct++; state.points+=DIFF_PTS[state.diff];music_player() }
   else { state.incorrect++; }
   render();
 }
@@ -207,7 +207,12 @@ function navigate(dir){
   render();
 }
 
-
+// Function to play music
+function music_player(){
+  // 
+  let myAudio = document.getElementById('audio');
+  myAudio.play();
+}
 
 render();
 
