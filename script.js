@@ -59,7 +59,7 @@ const DIFF_PTS = {easy:10,hard:30};
 const LABELS = {math:"Mathematics",reading:"Reading and English"};
 
 let state = {
-  subject:"math", diff:"easy",
+  subject:"reading", diff:"easy",
   qIdx:0,
   answers:{}, // key: "subj-diff-idx" -> {selected, correct}
   points:0, correct:0, incorrect:0,
