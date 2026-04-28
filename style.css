@@ -32,6 +32,7 @@ select:focus{border-color:var(--accent)}
 .player-badge.player-1.active{background:#42a5f5;color:#fff;border-color:#1e88e5}
 .player-badge.player-2.active{background:#ab47bc;color:#fff;border-color:#6a1b9a}
 .player-badge-label{display:block}
+.player-icon{width:24px;height:24px;border-radius:50%;object-fit:cover;flex-shrink:0} 
 
 /* MAIN */
 .main{padding:18px 20px;display:flex;flex-direction:column;gap:14px}
