@@ -202,8 +202,8 @@ function pick(i){
   const qs = getQs();
   const correct = i===qs[state.qIdx].ans;
   state.answers[key] = {selected:i, correct};
-  if(correct){ state.correct++; state.points+=DIFF_PTS[state.diff];music_player() }
-  else { state.incorrect++; }
+  if(correct){ state.correct++; state.points+=DIFF_PTS[state.diff];music_player_correct() }
+  else { state.incorrect++;music_player_incorrect() }
   render();
 }
 
@@ -228,10 +228,18 @@ function navigate(dir){
 }
 
 // Function to play music
-function music_player(){
+function music_player_correct(){
   // 
   let myAudio = document.getElementById('audio');
   myAudio.play();
 }
+
+function music_player_incorrect(){
+  // 
+  let myAudio = document.getElementById('audio2');
+  myAudio.play();
+}
+render();
+
 
 render();
