@@ -114,6 +114,29 @@ function changeMode(){
   state.qIdx=0; state.currentPlayer=1; render();
 }
 
+// Theme toggle functionality
+function initializeTheme() {
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.body.classList.toggle('dark-mode', savedTheme === 'light');
+  updateThemeButton();
+}
+
+function toggleTheme() {
+  const isDarkMode = document.body.classList.toggle('dark-mode');
+  localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+  updateThemeButton();
+}
+
+function updateThemeButton() {
+  const button = document.getElementById('theme-toggle');
+  const isDarkMode = document.body.classList.contains('dark-mode');
+  button.textContent = isDarkMode ? '☀️ Light Mode' : '🌙 Dark Mode';
+}
+
+// Initialize theme on page load
+document.addEventListener('DOMContentLoaded', initializeTheme);
+
+
 function render(){
   const qs = getQs();
   const q = qs[state.qIdx];
