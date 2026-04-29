@@ -136,7 +136,6 @@ function updateThemeButton() {
 // Initialize theme on page load
 document.addEventListener('DOMContentLoaded', initializeTheme);
 
-
 function render(){
   const qs = getQs();
   const q = qs[state.qIdx];
