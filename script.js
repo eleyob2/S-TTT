@@ -263,5 +263,3 @@ function music_player_incorrect(){
 }
 render();
 
-
-render();
