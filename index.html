@@ -21,8 +21,8 @@
               <option value="math">Mathematics</option>
             </select>
             <select id="diffSel" onchange="changeDiff()">
-              <option value="easy">Easy</option>
-              <option value="hard">Hard</option>
+              <option value="easy">Intermediate</option>
+              <option value="hard">Advanced</option>
             </select>
           </div>
           <button id="theme-toggle" onclick="toggleTheme()">🌙 Dark Mode</button>
@@ -43,9 +43,11 @@
 
       <div class="player-indicator" id="playerIndicator">
         <div class="player-badge player-1 active" id="player1Badge">
+          <img class="player-icon" src="./resources/player1.gif" alt="Player 1">
           <span class="player-badge-label">Player 1</span>
         </div>
         <div class="player-badge player-2" id="player2Badge">
+          <img class="player-icon" src="./resources/player2.gif" alt="Player 2">
           <span class="player-badge-label">Player 2</span>
         </div>
       </div>
@@ -53,7 +55,7 @@
         <div class="question-card" id="qCard">
         <div class="q-meta">
           <span class="q-num" id="qNum">Q1</span>
-          <span class="q-diff diff-easy" id="qDiff">Easy</span>
+          <span class="q-diff diff-easy" id="qDiff">Intermediate</span>
         </div>
         <div class="q-text" id="qText">Loading question...</div>
         <div class="options" id="opts"></div>
@@ -94,8 +96,7 @@
         Your browser cannot play the Subway Surfers video. Imagine Subway Surfers instead.
       </video>
     </div>
+    <audio id="audio" src="./resources/correct-answer.mp3"></audio>
+    <audio id="audio2" src="resources/incorrect-answer.mp3"></audio>
 </body>
 </html>
-
-
-
