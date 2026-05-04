@@ -15,19 +15,12 @@ body.dark-mode{
 }
 
 body.dark-mode select{background:var(--dark2);color:var(--text-on-dark)}
-
 body.dark-mode .question-card{background:var(--card-bg);border-color:var(--card-border)}
-
 body.dark-mode .opt{background:var(--dark2);border-color:rgba(171,223,174,.2);color:var(--text-on-dark)}
-
 body.dark-mode .opt:hover:not(.locked){background:var(--accent);color:var(--text-on-accent)}
-
 body.dark-mode .q-text{color:var(--text-on-dark)}
-
 body.dark-mode .btn-outline{color:var(--text-on-dark);border-color:rgba(255,227,220,.3)}
-
 body.dark-mode .btn-outline:hover{background:rgba(255,227,220,.1)}
-
 video{margin: auto; border:2px solid black; display: flex; margin-top: 25px; border-radius: 20px;}
 
 /* HEADER */
